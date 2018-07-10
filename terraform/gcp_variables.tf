@@ -59,7 +59,7 @@ variable gcp_vm_address {
 
 variable GCP_TUN1_VPN_GW_ASN {
   description = "Tunnel 1 - Virtual Private Gateway ASN, from the AWS VPN Customer Gateway Configuration"
-  default = "7224"
+  default = "64512"
 }
 
 variable GCP_TUN1_CUSTOMER_GW_INSIDE_NETWORK_CIDR {
@@ -69,7 +69,7 @@ variable GCP_TUN1_CUSTOMER_GW_INSIDE_NETWORK_CIDR {
 
 variable GCP_TUN2_VPN_GW_ASN {
   description = "Tunnel 2 - Virtual Private Gateway ASN, from the AWS VPN Customer Gateway Configuration"
-  default = "7224"
+  default = "64512"
 }
 
 variable GCP_TUN2_CUSTOMER_GW_INSIDE_NETWORK_CIDR {
