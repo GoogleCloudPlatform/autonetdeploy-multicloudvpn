@@ -17,6 +17,15 @@
 
 # Creates AWS credentials from an accessKeys.csv file.
 
+# May need to create the accessKeys.csv file from arguments.
+# arguments: key_id access_key key_file
+function createAccessKeys() {
+  echo 'Access key ID,Secret access key' > "$3"
+  echo "$1,$2" >> "$3"
+  echo "Created $3."
+}
+
+
 # Check arguments for existing accessKeys.csv file.
 # arguments: named_key_csv_file
 function checkArgs () {
@@ -124,7 +133,19 @@ function createCredentials () {
   addTFVar "${TFVARS_FILE_PATH}" "${TFVAR_CREDS}" "${CREDS_FILE_PATH}"
 }
 
+if [ "$#" -eq 0 ]; then
+  echo 'Error: missing argument.'
+  echo "$0 ${FILE_ARG}"
+  exit 1
+fi
 
-checkArgs $1
+ACCESS_KEYS_FILE=$1
+
+if [ "$#" -eq 2 ]; then
+  ACCESS_KEYS_FILE=./accessKeys.csv
+  createAccessKeys $1 $2 ${ACCESS_KEYS_FILE}
+fi
+
+checkArgs ${ACCESS_KEYS_FILE}
 # Pass "exists" to skip credential file copying.
-createCredentials $1
+createCredentials ${ACCESS_KEYS_FILE}
