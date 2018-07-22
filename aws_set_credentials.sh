@@ -122,7 +122,7 @@ function createCredentials () {
 
   if [ "$1" != "exists" ]; then
     mkdir -p ${CREDS_FILE_DIR}
-    backupCredentials ${CREDS_FILE_PATH}
+    backupCredentials ${CREDS_FILE_PATH} ${CREDS_FILE_PATH}
     addDefault ${CREDS_FILE_PATH}
     addSecrets $1 ${CREDS_FILE_PATH}
   fi
