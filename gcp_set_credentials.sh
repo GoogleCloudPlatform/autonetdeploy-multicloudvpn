@@ -36,7 +36,7 @@ function checkArgs () {
 }
 
 
-# Backup existing and create new  - if credentials.bak exists fail.
+# Backup existing credentials and create new ones.
 # arguments: source_credentials_file target_file_path
 function backupAndCopyCredentials() {
   local BACKUP_FILE="$2.bak.$(date +%s)"

@@ -45,19 +45,17 @@ function checkArgs () {
 }
 
 
-# Backup existing - if credentials.bak exists fail.
+# Backup existing credentials and create new ones.
 # arguments: source_credentials_file target_file_path
 function backupCredentials() {
+  local BACKUP_FILE="$2.bak.$(date +%s)"
   if [ -e $1.bak ]; then
-    echo "Error: backup creds found already. $1.bak"
-    echo "(Remove $1 file to retry.)"
-    exit 1
+    cp "$2" "${BACKUP_FILE}"
+    echo "Created backup (${BACKUP_FILE})."
   fi
 
-  if [ -e $1 ]; then
-    cp "$1" "$1.bak"
-    echo "Created backup ($1.bak)."
-  fi
+  cp "$1" "$1.bak"
+  echo "Created backup ($1.bak)."
 }
 
 
