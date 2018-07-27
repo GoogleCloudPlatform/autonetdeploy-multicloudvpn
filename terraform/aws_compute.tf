@@ -35,6 +35,11 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+resource "aws_key_pair" "vm-ssh-key" {
+  key_name   = "vm-ssh-key"
+  public_key = "${file("~/.ssh/vm-ssh-key.pub")}"
+}
+
 resource "aws_eip" "aws-ip" {
   vpc = true
 
@@ -46,7 +51,7 @@ resource "aws_instance" "aws-vm" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "${var.aws_instance_type}"
   subnet_id     = "${aws_subnet.aws-subnet1.id}"
-  key_name      = "vm-ssh-key"
+  key_name      = "${aws_key_pair.vm-ssh-key.key_name}"
 
   associate_public_ip_address = true
   private_ip = "${var.aws_vm_address}"
