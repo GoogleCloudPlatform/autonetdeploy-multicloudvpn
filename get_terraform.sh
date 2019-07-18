@@ -20,7 +20,7 @@
 # Download and extract Terraform utility in the terraform directory.
 function getTerraform() {
   # Places terraform in ~/terraform dir.
-  local T_VERSION='0.11.7/terraform_0.11.7_linux_amd64'
+  local T_VERSION='0.12.4/terraform_0.12.4_linux_amd64'
   local T_URL="https://releases.hashicorp.com/terraform/${T_VERSION}.zip"
   # ~ only expands when NOT quoted (below).
   local T_DIR=~/terraform
