@@ -42,7 +42,7 @@ resource "google_compute_instance" "gcp-vm" {
 
   network_interface {
     subnetwork = "${google_compute_subnetwork.gcp-subnet1.name}"
-    address = "${var.gcp_vm_address}"
+    network_ip = "${var.gcp_vm_address}"
 
     access_config {
       # Static IP
