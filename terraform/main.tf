@@ -20,7 +20,7 @@
  */
 
 provider "google" {
-  version = "~> 1.16.0"
+  version = "~> 2.11.0"
 
   credentials = "${file("${var.gcp_credentials_file_path}")}"
 
@@ -33,7 +33,7 @@ provider "google" {
 
 
 provider "aws" {
-  version = "~> 1.27.0"
+  version = "~> 2.19.0"
 
   shared_credentials_file = "${pathexpand("${var.aws_credentials_file_path}")}"
 
