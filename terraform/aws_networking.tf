@@ -58,7 +58,7 @@ resource "aws_customer_gateway" "aws-cgw" {
   ip_address = "${google_compute_address.gcp-vpn-ip.address}"
   type       = "ipsec.1"
   tags {
-    "Name" = "aws-customer-gw"
+    Name = "aws-customer-gw"
   }
 }
 
@@ -79,6 +79,6 @@ resource "aws_vpn_connection" "aws-vpn-connection1" {
   type                = "ipsec.1"
   static_routes_only  = false
   tags {
-    "Name" = "aws-vpn-connection1"
+    Name = "aws-vpn-connection1"
   }
 }
