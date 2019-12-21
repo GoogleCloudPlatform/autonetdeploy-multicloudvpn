@@ -35,7 +35,7 @@ variable aws_instance_type {
 }
 
 variable aws_disk_image {
-  description = "Boot disk for gcp_instance_type."
+  description = "Boot disk for aws_instance_type."
   default = "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"
 }
 
