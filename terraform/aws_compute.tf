@@ -60,7 +60,7 @@ resource "aws_instance" "aws-vm" {
 
   user_data = "${replace("${replace("${file("vm_userdata.sh")}", "<EXT_IP>", "${google_compute_address.gcp-ip.address}")}", "<INT_IP>", "${var.gcp_vm_address}")}"
 
-  tags {
+  tags = {
     Name = "aws-vm-${var.aws_region}"
   }
 }
