@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 /*
  * Terraform security (firewall) resources for AWS.
  */
@@ -23,7 +22,7 @@
 resource "aws_security_group" "aws-allow-icmp" {
   name        = "aws-allow-icmp"
   description = "Allow icmp access from anywhere"
-  vpc_id      = "${aws_vpc.aws-vpc.id}"
+  vpc_id      = aws_vpc.aws-vpc.id
 
   ingress {
     from_port   = 8
@@ -37,7 +36,7 @@ resource "aws_security_group" "aws-allow-icmp" {
 resource "aws_security_group" "aws-allow-ssh" {
   name        = "aws-allow-ssh"
   description = "Allow ssh access from anywhere"
-  vpc_id      = "${aws_vpc.aws-vpc.id}"
+  vpc_id      = aws_vpc.aws-vpc.id
 
   ingress {
     from_port   = 22
@@ -51,13 +50,13 @@ resource "aws_security_group" "aws-allow-ssh" {
 resource "aws_security_group" "aws-allow-vpn" {
   name        = "aws-allow-vpn"
   description = "Allow all traffic from vpn resources"
-  vpc_id      = "${aws_vpc.aws-vpc.id}"
+  vpc_id      = aws_vpc.aws-vpc.id
 
   ingress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["${var.gcp_subnet1_cidr}"]
+    cidr_blocks = [var.gcp_subnet1_cidr]
   }
 }
 
@@ -65,7 +64,7 @@ resource "aws_security_group" "aws-allow-vpn" {
 resource "aws_security_group" "aws-allow-internet" {
   name        = "aws-allow-internet"
   description = "Allow http traffic from the internet"
-  vpc_id      = "${aws_vpc.aws-vpc.id}"
+  vpc_id      = aws_vpc.aws-vpc.id
 
   ingress {
     from_port   = 80
@@ -81,3 +80,4 @@ resource "aws_security_group" "aws-allow-internet" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+

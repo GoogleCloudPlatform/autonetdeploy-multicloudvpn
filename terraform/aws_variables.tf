@@ -14,42 +14,42 @@
  * limitations under the License.
  */
 
-
 /*
  * Terraform variable declarations for AWS.
  */
 
-variable aws_credentials_file_path {
+variable "aws_credentials_file_path" {
   description = "Locate the AWS credentials file."
-  type = "string"
+  type        = string
 }
 
-variable aws_region {
+variable "aws_region" {
   description = "Default to Oregon region."
-  default = "us-west-2"
+  default     = "us-west-2"
 }
 
-variable aws_instance_type {
+variable "aws_instance_type" {
   description = "Machine Type. Includes 'Enhanced Networking' via ENA."
-  default = "r4.2xlarge"
+  default     = "r4.2xlarge"
 }
 
-variable aws_disk_image {
+variable "aws_disk_image" {
   description = "Boot disk for gcp_instance_type."
-  default = "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"
+  default     = "ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-*"
 }
 
-variable aws_network_cidr {
+variable "aws_network_cidr" {
   description = "VPC network ip block."
-  default = "172.16.0.0/16"
+  default     = "172.16.0.0/16"
 }
 
-variable aws_subnet1_cidr {
+variable "aws_subnet1_cidr" {
   description = "Subset block from VPC network ip block."
-  default = "172.16.0.0/24"
+  default     = "172.16.0.0/24"
 }
 
-variable aws_vm_address {
+variable "aws_vm_address" {
   description = "Private IP address for AWS VM instance."
-  default = "172.16.0.100"
+  default     = "172.16.0.100"
 }
+
