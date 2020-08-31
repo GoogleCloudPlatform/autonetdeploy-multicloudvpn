@@ -69,8 +69,8 @@ function addDefault() {
 # Add AWS secrets.
 # arguments: source_keys_file credentials_file
 function addSecrets() {
-  local KEY_ID=$(tail -1 "$1" | cut -d"," -f1)
-  local SECRET_KEY=$(tail -1 "$1" | cut -d"," -f2)
+  local KEY_ID=$(tail -1 "$1" | cut -d"," -f3)
+  local SECRET_KEY=$(tail -1 "$1" | cut -d"," -f4)
 
   echo "aws_access_key_id=${KEY_ID}" >> $2
   echo "aws_secret_access_key=${SECRET_KEY}" >> $2
