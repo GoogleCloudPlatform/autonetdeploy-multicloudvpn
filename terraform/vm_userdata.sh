@@ -16,9 +16,9 @@
 
 
 # Make it easy to run iperf3.
-echo "iperf3 -c <EXT_IP> -p 80 -i 1 -t 30 -P 8 -V" > /tmp/run_iperf_to_ext.sh
+echo "iperf3 -c <EXT_IP> -p 80 -i 1 -t 15 -P 4 -V" > /tmp/run_iperf_to_ext.sh
 chmod 755 /tmp/run_iperf_to_ext.sh
-echo "iperf3 -c <INT_IP> -p 80 -i 1 -t 30 -P 8 -V" > /tmp/run_iperf_to_int.sh
+echo "iperf3 -c <INT_IP> -p 80 -i 1 -t 15 -P 4 -V" > /tmp/run_iperf_to_int.sh
 chmod 755 /tmp/run_iperf_to_int.sh
 
 # Setup iperf3.
